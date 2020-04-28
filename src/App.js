@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Navbar, NavbarBrand } from "reactstrap";
+import "./App.css";
+import Directory from './components/DirectoryComponent';
+import { LANGUAGES } from './shared/languages';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      languages: LANGUAGES
+    };
+  }
+  render() {
+    return (
+      <div>
+        <Navbar className="App">
+          <div>
+          <img className="w-25" src="assets/images/portrait.jpg" />
+            <NavbarBrand href="/">Dan Beto</NavbarBrand>
+          </div>
+        </Navbar>
+        <Directory />
+      </div>
+      
+    );
+  }
 }
 
 export default App;
